@@ -74,11 +74,12 @@
 </head>
 <body class="bg-gray-100 min-h-screen py-10 px-6">
 
-    @if (session('success'))
-        <div id="popup-message" class="popup">
-            {{ session('success') }}
-        </div>
-    @endif
+    <!-- Preview Indicator -->
+    <div class="w-full fixed top-0 left-0 bg-yellow-400 text-black py-3 text-center font-bold shadow-md z-50">
+        PREVIEW MODE - Read Only
+    </div>
+
+    <div class="h-12"></div>
 
     <div class="max-w-5xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden relative resume">
 
