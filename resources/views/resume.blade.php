@@ -55,7 +55,7 @@
 
         .collapsible:after {
             content: '\002B'; /* plus sign */
-            float: right;
+            float: left;
         }
 
         .collapsible.active:after {
@@ -83,6 +83,13 @@
         </div>
     @endif
 
+    <div class="flex justify-end max-w-5xl mx-auto mb-4">
+        <a href="{{ route('resume.edit') }}" 
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow transition">
+        ✏️ Edit Resume
+        </a>
+    </div>
+
     <div class="max-w-5xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden relative resume">
 
         {{-- Profile Image --}}
@@ -105,35 +112,9 @@
                 <div class="bg-gray-50 shadow rounded-xl p-5">
                     <h2 class="text-xl font-semibold text-green-700 mb-3">Contact</h2>
                     <ul class="space-y-2 text-gray-700">
-                        <li>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Brgy.+Sampaloc,+Talavera,+Nueva+Ecija"
-                               target="_blank" class="hover:text-green-600 transition">
-                                🏠︎ Brgy. Sampaloc, Talavera, Nueva Ecija
-                            </a>
-                        </li>
-                        <li>
-                            <button onclick="copyPhone('09661565006')" class="hover:text-green-600 transition cursor-pointer">
-                                ☎ 09661565006
-                            </button>
-                        </li>
-                        <li>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bulanadi.sophia@gmail.com"
-                               target="_blank" class="hover:text-green-600 transition">
-                                ✉︎ bulanadi.sophia@gmail.com
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://linkedin.com/in/sophialoureine" 
-                               target="_blank" class="hover:text-green-600 transition">
-                                🔗 linkedin.com/in/sophialoureine
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/loreyn-loreyn" 
-                               target="_blank" class="hover:text-green-600 transition">
-                                💻 github.com/loreyn-loreyn
-                            </a>
-                        </li>
+                        @foreach($contact as $line)
+                            <li>{{ $line }}</li>
+                        @endforeach
                     </ul>
                 </div>
 
@@ -213,13 +194,6 @@
                 }, 3000);
             }
         });
-
-        // Copy phone number
-        function copyPhone(number) {
-            navigator.clipboard.writeText(number).then(() => {
-                alert("Phone number copied: " + number);
-            });
-        }
     </script>
 </body>
 </html>
