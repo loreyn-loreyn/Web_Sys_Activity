@@ -1,3 +1,7 @@
+@php
+    $firstResumeUserId = \App\Models\Resume::first()?->user_id ?? 1;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,6 +124,7 @@
     </style>
 </head>
 <body>
+
     <div class="login-container">
         <h2>Login</h2>
 
@@ -144,6 +149,26 @@
             </div>
 
             <button type="submit">Login</button>
+
+<div style="width: 100%; margin-top: 20px; text-align: center;">
+    <a href="{{ route('resume.preview', ['user_id' => $firstResumeUserId]) }}"
+       style="display: inline-block;
+              width: 100%;
+              padding: 12px 0;
+              border-radius: 8px;
+              font-weight: bold;
+              font-size: 16px;
+              color: #fff;
+              text-decoration: none;
+              text-align: center;
+              background: linear-gradient(135deg, rgb(74, 203, 226), rgb(67, 151, 129));
+              transition: transform 0.2s ease, box-shadow 0.2s ease;"
+       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';"
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        Preview Resume
+    </a>
+</div>
+
         </form>
     </div>
 
