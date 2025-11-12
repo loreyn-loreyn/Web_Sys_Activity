@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Resume extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'title',
+        'profile',
+        'contact',
+        'education',
+        'skills',
+        'experience',
+    ];
+
+    protected $casts = [
+        'contact' => 'array',
+        'skills' => 'array',
+        'experience' => 'array',
+    ];
+}
