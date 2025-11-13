@@ -13,6 +13,7 @@
             .logout-btn { display: none; }
             .collapsible { background: none; cursor: auto; }
             .collapsible-content { display: block !important; }
+            .back-btn { display: none; }
         }
 
         .popup {
@@ -150,6 +151,14 @@
                     </div>
                 @endforeach
             </div>
+        </div>
+
+        {{-- Back to Login Button --}}
+        <div class="text-center pb-10">
+            <a href="{{ url('/login') }}" 
+               class="back-btn inline-block bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200">
+                ← Back to Login
+            </a>
         </div>
 
     </div>
